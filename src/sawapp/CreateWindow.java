@@ -168,9 +168,9 @@ public class CreateWindow {
 		hp_7.setAlignment(SWT.CENTER);
 		hp_7.setBounds(230, 250, 113, 40);
 
-		Button btnNewButton = new Button(composite, SWT.NONE);
-		btnNewButton.setBounds(280, 350, 113, 40);
-		btnNewButton.setText("リセット");
+		Button ResetButton = new Button(composite, SWT.NONE);
+		ResetButton.setBounds(280, 350, 113, 40);
+		ResetButton.setText("リセット");
 
 		Button button = new Button(composite, SWT.NONE);
 		button.setText("決定");
@@ -299,6 +299,26 @@ public class CreateWindow {
 				hp_9.setText(String.valueOf(status.getLifePoints(8)));
 			}
 		});
+		
+		ResetButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				status.setLifePoints(new Integer[9]);
+				status.setTurn(0);
+				status.setClothType(0);
+				turnView.setText("0");
+				hp_1.setText("0");
+				hp_2.setText("0");
+				hp_3.setText("0");
+				hp_4.setText("0");
+				hp_5.setText("0");
+				hp_6.setText("0");
+				hp_7.setText("0");
+				hp_8.setText("0");
+				hp_9.setText("0");
+			}
+		});
+		
 		shell.open();
 		shell.layout();
 		while (!shell.isDisposed()) {
